@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "tagid": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "tagid"
+  ],
+  "title": "AnimalKey",
+  "type": "object"
+}
