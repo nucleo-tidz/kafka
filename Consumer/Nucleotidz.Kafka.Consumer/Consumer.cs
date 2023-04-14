@@ -51,14 +51,14 @@ namespace Nucleotidz.Kafka.Consumer
                 consumer.Subscribe(_consumerConfiguration.Topic);
                 while (!stoppingToken.IsCancellationRequested)
                 {
-                    var consumedMessage = consumer.Consume(TimeSpan.FromMilliseconds(_consumerConfiguration.TimeOut));
+                    var consumedMessage = consumer.Consume(TimeSpan.FromMilliseconds(1000));
                     if (consumedMessage?.Message is not null)
                     {
                         buffer.Add(consumedMessage);
                         var timeSinceLastReset = GetUtcTime() - lastReset;
 
                         if (buffer.Count < _consumerConfiguration.BatchSize &&
-                            timeSinceLastReset.TotalSeconds < 15)
+                            timeSinceLastReset.TotalSeconds < _consumerConfiguration.TimeOut)
                         {
                             continue;
                         }
@@ -70,6 +70,8 @@ namespace Nucleotidz.Kafka.Consumer
 
                     var offsets = await _handler.HandleAsync(buffer, stoppingToken);
                     consumer.Commit(offsets);
+                    buffer.Clear();
+                    lastReset = GetUtcTime();
                 }
             }
         }

@@ -24,7 +24,7 @@ namespace Nucleotidz.Kafka.Abstraction.Options
 
         public string ClientId { get; set; }
 
-        public int TimeOut { get; set; } = 10000;
+        public int TimeOut { get; set; } = 5000;
 
     }
 }
