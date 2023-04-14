@@ -9,7 +9,7 @@ IHost host = Host.CreateDefaultBuilder(args)
     .ConfigureServices((hostContext, services) =>
     {
         services.AddTransient<IHandler<employeeKey, employeeMessage>, Worker>();
-        services.AddConsumer<employeeKey, employeeMessage>(hostContext.Configuration, "Kafka", "Kafka:SchemaRegistry");
+        services.AddAvroConsumer<employeeKey, employeeMessage>(hostContext.Configuration, "Kafka", "Kafka:SchemaRegistry");
     })
     .Build();
 

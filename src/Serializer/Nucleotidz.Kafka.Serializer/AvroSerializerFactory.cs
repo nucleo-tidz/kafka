@@ -13,12 +13,13 @@ namespace Nucleotidz.Kafka.Serializer
         {
             _schemaRegistryClient = schemaRegistryFactory.Create();
         }
-        public  ISerializer<T> CreateSerializer<T>()
+        public  ISerializer<T> CreateSerializer<T>() 
+            where T : class 
         {
             return new AvroSerializer<T>(_schemaRegistryClient).AsSyncOverAsync();
         }
 
-        public  IDeserializer<T> CreateDeserializer<T>()
+        public  IDeserializer<T> CreateDeserializer<T>() where T : class
         {
             return new NuceloSerializer<T>(_schemaRegistryClient).AsSyncOverAsync();
         }
