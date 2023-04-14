@@ -1,9 +1,9 @@
 using com.nucleotidz.employee.key;
 using com.nucleotidz.employee;
-using Consumer.Example;
 using Newtonsoft.Json.Linq;
 using Nucleotidz.Kafka.Abstraction;
 using Nucleotidz.Kafka.Consumer;
+using Nucleotidz.Consumer.Avro;
 
 IHost host = Host.CreateDefaultBuilder(args)
     .ConfigureServices((hostContext, services) =>
