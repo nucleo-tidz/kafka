@@ -9,3 +9,6 @@
 /Abstraction/Nucleotidz.Kafka.Abstraction/obj
 /SchemaRegistry/Nucleotidz.Kafka.SchemaRegistry/obj
 /Consumer/Nucleotidz.Kafka.Consumer/bin/Debug/net6.0
+/Nucleotidz.Kafka.Serializer/obj
+/Nucleotidz.Kafka.Serializer/bin/Debug/net6.0
+/SchemaRegistry/Nucleotidz.Kafka.SchemaRegistry/bin/Debug/net6.0
