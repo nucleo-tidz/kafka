@@ -6,15 +6,19 @@ using Nucleotidz.Kafka.Abstraction.Options;
 
 namespace Nucleotidz.Kafka.Consumer
 {
-    public class Consumer<TKey, TValue> :BackgroundService
+    public class Consumer<TKey, TValue> : BackgroundService 
+        where TKey : class
+        where TValue: class
     {
         readonly ConsumerConfiguration _consumerConfiguration;
-        ISerializerFactory _serializerFactory;
-        IHandler<TKey, TValue> _handler;
+        readonly ISerializerFactory _serializerFactory;
+        readonly IHandler<TKey, TValue> _handler;
         public Consumer(IOptions<ConsumerConfiguration> _consumerConfigurationOption, ISerializerFactory serializerFactory, IHandler<TKey, TValue> handler)
         {
             _consumerConfiguration = _consumerConfigurationOption.Value;
             ArgumentNullException.ThrowIfNull(serializerFactory, nameof(serializerFactory));
+            ArgumentNullException.ThrowIfNull(serializerFactory, nameof(serializerFactory));
+            ArgumentNullException.ThrowIfNull(handler, nameof(handler));
             _serializerFactory = serializerFactory;
             _handler = handler;
         }
@@ -54,7 +58,7 @@ namespace Nucleotidz.Kafka.Consumer
                         var timeSinceLastReset = GetUtcTime() - lastReset;
 
                         if (buffer.Count < _consumerConfiguration.BatchSize &&
-                            timeSinceLastReset.TotalSeconds < 9)
+                            timeSinceLastReset.TotalSeconds < 15)
                         {
                             continue;
                         }
@@ -73,6 +77,6 @@ namespace Nucleotidz.Kafka.Consumer
         {
             return DateTimeOffset.UtcNow;
         }
-       
+
     }
 }

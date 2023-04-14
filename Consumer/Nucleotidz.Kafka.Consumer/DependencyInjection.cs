@@ -14,8 +14,10 @@ namespace Nucleotidz.Kafka.Consumer
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection AddConsumer<TKey, TValue>(this IServiceCollection services, 
-            IConfiguration configuration,string ConsumerConfigurationSection, string SchemaRegistryConfigurationSection)
+        public static IServiceCollection AddConsumer<TKey, TValue>(this IServiceCollection services,
+            IConfiguration configuration, string ConsumerConfigurationSection, string SchemaRegistryConfigurationSection)
+             where TKey : class
+             where TValue : class
         {
             services.Configure<ConsumerConfiguration>(configuration.GetSection(ConsumerConfigurationSection));
             services.Configure<SchemaRegistryConfiguration>(configuration.GetSection(SchemaRegistryConfigurationSection));
