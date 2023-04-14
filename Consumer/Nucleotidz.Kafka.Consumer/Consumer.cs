@@ -6,15 +6,17 @@ using Nucleotidz.Kafka.Abstraction.Options;
 
 namespace Nucleotidz.Kafka.Consumer
 {
-    public abstract class Consumer<TKey, TValue> : BackgroundService
+    public class Consumer<TKey, TValue> :BackgroundService
     {
         readonly ConsumerConfiguration _consumerConfiguration;
         ISerializerFactory _serializerFactory;
-        public Consumer(IOptions<ConsumerConfiguration> _consumerConfigurationOption, ISerializerFactory serializerFactory)
+        IHandler<TKey, TValue> _handler;
+        public Consumer(IOptions<ConsumerConfiguration> _consumerConfigurationOption, ISerializerFactory serializerFactory, IHandler<TKey, TValue> handler)
         {
             _consumerConfiguration = _consumerConfigurationOption.Value;
             ArgumentNullException.ThrowIfNull(serializerFactory, nameof(serializerFactory));
             _serializerFactory = serializerFactory;
+            _handler = handler;
         }
         private ConsumerConfig CreateConfiguration()
         {
@@ -52,7 +54,7 @@ namespace Nucleotidz.Kafka.Consumer
                         var timeSinceLastReset = GetUtcTime() - lastReset;
 
                         if (buffer.Count < _consumerConfiguration.BatchSize &&
-                            timeSinceLastReset.TotalSeconds < 10)
+                            timeSinceLastReset.TotalSeconds < 9)
                         {
                             continue;
                         }
@@ -62,7 +64,7 @@ namespace Nucleotidz.Kafka.Consumer
                         continue;
                     }
 
-                    var offsets = await HandleAsync(buffer, stoppingToken);
+                    var offsets = await _handler.HandleAsync(buffer, stoppingToken);
                     consumer.Commit(offsets);
                 }
             }
@@ -71,6 +73,6 @@ namespace Nucleotidz.Kafka.Consumer
         {
             return DateTimeOffset.UtcNow;
         }
-        public abstract Task<IEnumerable<TopicPartitionOffset>> HandleAsync(IEnumerable<ConsumeResult<TKey, TValue>> consumeResults, CancellationToken cancellationToken);
+       
     }
 }
