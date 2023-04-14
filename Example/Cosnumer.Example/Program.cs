@@ -1,6 +1,6 @@
 using com.nucleotidz.employee.key;
 using com.nucleotidz.employee;
-using Cosnumer.Example;
+using Consumer.Example;
 using Newtonsoft.Json.Linq;
 using Nucleotidz.Kafka.Abstraction;
 using Nucleotidz.Kafka.Consumer;

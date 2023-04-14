@@ -1,4 +1,4 @@
-namespace Cosnumer.Example
+namespace Consumer.Example
 {
     using com.nucleotidz.employee;
     using com.nucleotidz.employee.key;
