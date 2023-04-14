@@ -25,7 +25,7 @@
             var schemaRegistryConfig = new SchemaRegistryConfig
             {
                 Url = _schemaRegistryConfiguration.Url,
-                BasicAuthUserInfo =  $"{_schemaRegistryConfiguration.Username}:{_schemaRegistryConfiguration.Password}"
+                BasicAuthUserInfo = $"{_schemaRegistryConfiguration.Username}:{_schemaRegistryConfiguration.Password}"
             };
             return new CachedSchemaRegistryClient(schemaRegistryConfig);
         }

@@ -1,11 +1,6 @@
 ﻿using Confluent.Kafka;
-using Confluent.SchemaRegistry.Serdes;
 using Confluent.SchemaRegistry;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Confluent.SchemaRegistry.Serdes;
 
 namespace Nucleotidz.Kafka.Serializer
 {
