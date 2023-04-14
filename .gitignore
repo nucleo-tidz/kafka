@@ -14,3 +14,6 @@
 /SchemaRegistry/Nucleotidz.Kafka.SchemaRegistry/bin/Debug/net6.0
 /Serializer/Nucleotidz.Kafka.Serializer/obj
 /Serializer/Nucleotidz.Kafka.Serializer/bin/Debug/net6.0
+/Example/Cosnumer.Example/bin/Debug/net6.0
+/Example/Cosnumer.Example/obj
+/Example/Cosnumer.Example/appsettings.Local.json

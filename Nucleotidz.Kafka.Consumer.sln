@@ -5,11 +5,15 @@ VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nucleotidz.Kafka.Consumer", "Consumer\Nucleotidz.Kafka.Consumer\Nucleotidz.Kafka.Consumer.csproj", "{BF16D834-CF54-483F-861D-E8E9AE8DEA25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nucleotidz.Kafka.Abstraction", "Abstraction\Nucleotidz.Kafka.Abstraction\Nucleotidz.Kafka.Abstraction.csproj", "{EB465E02-BB63-49FC-8054-F559AD16BBE9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nucleotidz.Kafka.Abstraction", "Abstraction\Nucleotidz.Kafka.Abstraction\Nucleotidz.Kafka.Abstraction.csproj", "{EB465E02-BB63-49FC-8054-F559AD16BBE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nucleotidz.Kafka.SchemaRegistry", "SchemaRegistry\Nucleotidz.Kafka.SchemaRegistry\Nucleotidz.Kafka.SchemaRegistry.csproj", "{4B3CC00B-2D59-4F4F-BD52-6DDD9CA38DE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nucleotidz.Kafka.SchemaRegistry", "SchemaRegistry\Nucleotidz.Kafka.SchemaRegistry\Nucleotidz.Kafka.SchemaRegistry.csproj", "{4B3CC00B-2D59-4F4F-BD52-6DDD9CA38DE3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nucleotidz.Kafka.Serializer", "Serializer\Nucleotidz.Kafka.Serializer\Nucleotidz.Kafka.Serializer.csproj", "{F9B9F7A6-17AA-4769-BDC6-A48F7765987F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nucleotidz.Kafka.Serializer", "Serializer\Nucleotidz.Kafka.Serializer\Nucleotidz.Kafka.Serializer.csproj", "{F9B9F7A6-17AA-4769-BDC6-A48F7765987F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{0CE28804-3B7F-4729-81CF-659D656EBCDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosnumer.Example", "Example\Cosnumer.Example\Cosnumer.Example.csproj", "{B68DB962-A67A-4860-AA48-8C3316E53D01}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,9 +37,16 @@ Global
 		{F9B9F7A6-17AA-4769-BDC6-A48F7765987F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9B9F7A6-17AA-4769-BDC6-A48F7765987F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9B9F7A6-17AA-4769-BDC6-A48F7765987F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B68DB962-A67A-4860-AA48-8C3316E53D01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B68DB962-A67A-4860-AA48-8C3316E53D01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B68DB962-A67A-4860-AA48-8C3316E53D01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B68DB962-A67A-4860-AA48-8C3316E53D01}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B68DB962-A67A-4860-AA48-8C3316E53D01} = {0CE28804-3B7F-4729-81CF-659D656EBCDA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F7EA82D1-90A9-473A-9B69-475D721BEF45}
