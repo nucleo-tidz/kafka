@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nucleotidz.Kafka.Consumer", "Consumer\Nucleotidz.Kafka.Consumer\Nucleotidz.Kafka.Consumer.csproj", "{BF16D834-CF54-483F-861D-E8E9AE8DEA25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nucleotidz.Kafka.Consumer", "Consumer\Nucleotidz.Kafka.Consumer\Nucleotidz.Kafka.Consumer.csproj", "{BF16D834-CF54-483F-861D-E8E9AE8DEA25}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nucleotidz.Kafka.Abstraction", "Abstraction\Nucleotidz.Kafka.Abstraction\Nucleotidz.Kafka.Abstraction.csproj", "{EB465E02-BB63-49FC-8054-F559AD16BBE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nucleotidz.Kafka.SchemaRegistry", "SchemaRegistry\Nucleotidz.Kafka.SchemaRegistry\Nucleotidz.Kafka.SchemaRegistry.csproj", "{4B3CC00B-2D59-4F4F-BD52-6DDD9CA38DE3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{BF16D834-CF54-483F-861D-E8E9AE8DEA25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF16D834-CF54-483F-861D-E8E9AE8DEA25}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF16D834-CF54-483F-861D-E8E9AE8DEA25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB465E02-BB63-49FC-8054-F559AD16BBE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB465E02-BB63-49FC-8054-F559AD16BBE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB465E02-BB63-49FC-8054-F559AD16BBE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB465E02-BB63-49FC-8054-F559AD16BBE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B3CC00B-2D59-4F4F-BD52-6DDD9CA38DE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B3CC00B-2D59-4F4F-BD52-6DDD9CA38DE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B3CC00B-2D59-4F4F-BD52-6DDD9CA38DE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B3CC00B-2D59-4F4F-BD52-6DDD9CA38DE3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
