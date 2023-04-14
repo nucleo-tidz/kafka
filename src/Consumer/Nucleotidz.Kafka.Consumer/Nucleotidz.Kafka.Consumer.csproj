@@ -4,6 +4,21 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+	  <RootNamespace>Nucleotidz.Kafka.Consumer</RootNamespace>
+	  <AssemblyName>Nucleotidz.Kafka.Consumer</AssemblyName>
+	  <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+	  <CodeAnalysisTreatWarningsAsErrors>false</CodeAnalysisTreatWarningsAsErrors>
+	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	  <PackageId>Nucleotidz.Kafka.Consumer</PackageId>
+	  <!--<Version>1.0.4</Version>-->
+	  <Authors>Ahmar Husain</Authors>
+	  <Company>Nucleotidz</Company>
+	  <Product>Nucleotidz.Kafka.Consumer</Product>
+	  <Description>Lightweight library to consume from kafka</Description>
+	  <PackageProjectUrl>https://github.com/nucleo-tidz/kafka-consumer</PackageProjectUrl>
+	  <RepositoryUrl>https://github.com/nucleo-tidz/kafka-consumer</RepositoryUrl>
+	  <RepositoryType>git</RepositoryType>
+	  <PackageTags>storage queue client</PackageTags>
   </PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="Confluent.Kafka" Version="1.7.0" />
