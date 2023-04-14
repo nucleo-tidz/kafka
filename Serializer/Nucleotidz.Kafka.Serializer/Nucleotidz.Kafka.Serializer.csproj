@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Abstraction\Nucleotidz.Kafka.Abstraction\Nucleotidz.Kafka.Abstraction.csproj" />
-    <ProjectReference Include="..\SchemaRegistry\Nucleotidz.Kafka.SchemaRegistry\Nucleotidz.Kafka.SchemaRegistry.csproj" />
+    <ProjectReference Include="..\..\Abstraction\Nucleotidz.Kafka.Abstraction\Nucleotidz.Kafka.Abstraction.csproj" />
+    <ProjectReference Include="..\..\SchemaRegistry\Nucleotidz.Kafka.SchemaRegistry\Nucleotidz.Kafka.SchemaRegistry.csproj" />
   </ItemGroup>
 
 </Project>
