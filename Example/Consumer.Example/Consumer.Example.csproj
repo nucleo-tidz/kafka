@@ -12,6 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Consumer\Nucleotidz.Kafka.Consumer\Nucleotidz.Kafka.Consumer.csproj" />
+    <ProjectReference Include="..\..\src\Consumer\Nucleotidz.Kafka.Consumer\Nucleotidz.Kafka.Consumer.csproj" />
   </ItemGroup>
 </Project>

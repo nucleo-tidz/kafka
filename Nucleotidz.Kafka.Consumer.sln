@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nucleotidz.Kafka.Consumer", "Consumer\Nucleotidz.Kafka.Consumer\Nucleotidz.Kafka.Consumer.csproj", "{BF16D834-CF54-483F-861D-E8E9AE8DEA25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nucleotidz.Kafka.Consumer", "src\Consumer\Nucleotidz.Kafka.Consumer\Nucleotidz.Kafka.Consumer.csproj", "{BF16D834-CF54-483F-861D-E8E9AE8DEA25}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nucleotidz.Kafka.Abstraction", "Abstraction\Nucleotidz.Kafka.Abstraction\Nucleotidz.Kafka.Abstraction.csproj", "{EB465E02-BB63-49FC-8054-F559AD16BBE9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nucleotidz.Kafka.Abstraction", "src\Abstraction\Nucleotidz.Kafka.Abstraction\Nucleotidz.Kafka.Abstraction.csproj", "{EB465E02-BB63-49FC-8054-F559AD16BBE9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nucleotidz.Kafka.SchemaRegistry", "SchemaRegistry\Nucleotidz.Kafka.SchemaRegistry\Nucleotidz.Kafka.SchemaRegistry.csproj", "{4B3CC00B-2D59-4F4F-BD52-6DDD9CA38DE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nucleotidz.Kafka.SchemaRegistry", "src\SchemaRegistry\Nucleotidz.Kafka.SchemaRegistry\Nucleotidz.Kafka.SchemaRegistry.csproj", "{4B3CC00B-2D59-4F4F-BD52-6DDD9CA38DE3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nucleotidz.Kafka.Serializer", "Serializer\Nucleotidz.Kafka.Serializer\Nucleotidz.Kafka.Serializer.csproj", "{F9B9F7A6-17AA-4769-BDC6-A48F7765987F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nucleotidz.Kafka.Serializer", "src\Serializer\Nucleotidz.Kafka.Serializer\Nucleotidz.Kafka.Serializer.csproj", "{F9B9F7A6-17AA-4769-BDC6-A48F7765987F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{0CE28804-3B7F-4729-81CF-659D656EBCDA}"
 EndProject
