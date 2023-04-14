@@ -1,9 +1,7 @@
 ﻿namespace Nucleotidz.Kafka.SchemaRegistry
 {
-    using Microsoft.Extensions.Options;
-    using Confluent.Kafka;
-    using Confluent.SchemaRegistry.Serdes;
     using Confluent.SchemaRegistry;
+    using Microsoft.Extensions.Options;
     using Nucleotidz.Kafka.Abstraction;
 
     public class SchemaRegistryFactory : ISchemaRegistryFactory

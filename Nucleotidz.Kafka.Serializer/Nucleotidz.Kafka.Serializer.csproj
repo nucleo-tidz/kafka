@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Abstraction\Nucleotidz.Kafka.Abstraction\Nucleotidz.Kafka.Abstraction.csproj" />
+    <ProjectReference Include="..\SchemaRegistry\Nucleotidz.Kafka.SchemaRegistry\Nucleotidz.Kafka.SchemaRegistry.csproj" />
+  </ItemGroup>
+
+</Project>
