@@ -4,9 +4,9 @@ using Confluent.SchemaRegistry.Serdes;
 
 namespace Nucleotidz.Kafka.Serializer
 {
-    internal class NuceloDeserializer<T> : AvroDeserializer<T>, IAsyncDeserializer<T>
+    internal class NuceloSerializer<T> : AvroDeserializer<T>, IAsyncDeserializer<T>
     {
-        public NuceloDeserializer(ISchemaRegistryClient schemaRegistryClient)
+        public NuceloSerializer(ISchemaRegistryClient schemaRegistryClient)
             : base(schemaRegistryClient)
         { }
         public new Task<T> DeserializeAsync(ReadOnlyMemory<byte> data, bool isNull, SerializationContext context)

@@ -20,7 +20,7 @@ namespace Nucleotidz.Kafka.Serializer
 
         public  IDeserializer<T> CreateDeserializer<T>()
         {
-            return new NuceloDeserializer<T>(_schemaRegistryClient).AsSyncOverAsync();
+            return new NuceloSerializer<T>(_schemaRegistryClient).AsSyncOverAsync();
         }
     } 
 }
