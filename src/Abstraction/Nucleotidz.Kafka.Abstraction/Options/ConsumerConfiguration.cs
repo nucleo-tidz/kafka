@@ -21,5 +21,7 @@ namespace Nucleotidz.Kafka.Abstraction.Options
 
         public int TimeOut { get; set; } = 5000;
 
+        public string Debug { get; set; } 
+
     }
 }

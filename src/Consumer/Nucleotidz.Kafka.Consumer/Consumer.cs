@@ -11,42 +11,20 @@ namespace Nucleotidz.Kafka.Consumer
         where TValue : class
     {
         private readonly ConsumerConfiguration _consumerConfiguration;
-        private readonly ISerializerFactory _serializerFactory;
         private readonly IHandler<TKey, TValue> _handler;
-        public Consumer(IOptions<ConsumerConfiguration> _consumerConfigurationOption, ISerializerFactory serializerFactory, IHandler<TKey, TValue> handler)
+        private readonly IConsumerFactory<TKey, TValue> _consumerFactory;
+        public Consumer(IOptions<ConsumerConfiguration> consumerConfigurationOption, IHandler<TKey, TValue> handler, IConsumerFactory<TKey, TValue> consumerFactory)
         {
-            _consumerConfiguration = _consumerConfigurationOption.Value;
-            ArgumentNullException.ThrowIfNull(serializerFactory, nameof(serializerFactory));
-            ArgumentNullException.ThrowIfNull(serializerFactory, nameof(serializerFactory));
-            ArgumentNullException.ThrowIfNull(handler, nameof(handler));
-            _serializerFactory = serializerFactory;
+            _consumerConfiguration = consumerConfigurationOption.Value;
             _handler = handler;
+            _consumerFactory = consumerFactory;
         }
-        private ConsumerConfig CreateConfiguration()
-        {
-            return new ConsumerConfig
-            {
-                BootstrapServers = string.Join(",", _consumerConfiguration.BootstrapServers),
-                EnableAutoCommit = false,
-                GroupId = _consumerConfiguration.GroupName,
-                ClientId = _consumerConfiguration.ClientId,
-                SecurityProtocol = SecurityProtocol.SaslSsl,
-                SaslMechanism = SaslMechanism.Plain,
-                SaslUsername = _consumerConfiguration.Username,
-                SaslPassword = _consumerConfiguration.Password,
-                AutoOffsetReset = _consumerConfiguration.AutoOffsetReset
 
-            };
-        }
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
             List<ConsumeResult<TKey, TValue>> buffer = new();
             DateTimeOffset lastReset = GetUtcTime();
-            using IConsumer<TKey, TValue> consumer =
-                new ConsumerBuilder<TKey, TValue>(CreateConfiguration())
-                    .SetKeyDeserializer(_serializerFactory.CreateDeserializer<TKey>())
-                    .SetValueDeserializer(_serializerFactory.CreateDeserializer<TValue>())
-                    .Build();
+            using IConsumer<TKey, TValue> consumer = _consumerFactory.Create();
             consumer.Subscribe(_consumerConfiguration.Topic);
             while (!stoppingToken.IsCancellationRequested)
             {

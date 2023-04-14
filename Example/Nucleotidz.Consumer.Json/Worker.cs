@@ -8,6 +8,7 @@ namespace Nucleotidz.Consumer.Json
     {
         public async Task<IEnumerable<TopicPartitionOffset>> HandleAsync(IEnumerable<ConsumeResult<AnimalKey, Animal>> consumeResults, CancellationToken cancellationToken)
         {
+            Console.WriteLine(consumeResults.Count().ToString());
             await Task.CompletedTask;
             return consumeResults.Select(cr => cr.TopicPartitionOffset);
            
