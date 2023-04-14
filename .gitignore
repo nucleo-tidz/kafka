@@ -5,3 +5,7 @@
 /Consumer/Nucleotidz.Kafka.Consumer/obj
 /Consumer/Nucleotidz.Kafka.Consumer/.vs
 /.vs
+/Abstraction/Nucleotidz.Kafka.Abstraction/bin/Debug/net6.0
+/Abstraction/Nucleotidz.Kafka.Abstraction/obj
+/SchemaRegistry/Nucleotidz.Kafka.SchemaRegistry/obj
+/Consumer/Nucleotidz.Kafka.Consumer/bin/Debug/net6.0
