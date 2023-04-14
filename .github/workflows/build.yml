@@ -1,0 +1,33 @@
+name: build.yml
+on:
+  push:
+    branches:
+      - '*'
+
+  workflow_dispatch:
+   inputs:
+    enableManualDeployement :
+      description: 'Click to enable manual deployment from a custom branch to the test environment.'
+      default: false
+      required: true
+      type: boolean
+
+jobs:
+  build:
+    env:
+      solution: '${{ github.workspace }}/Nucleotidz.Kafka.Consumer.sln'
+      feedurl : 'https://nuget.pkg.github.com/nucleo-tidz/index.json'
+    name: publish
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 6.0.x
+
+    - name: Restore dependencies
+      run: dotnet restore $solution
+
+    - name: Build
+      run: dotnet build $solution --no-restore
