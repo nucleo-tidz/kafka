@@ -12,3 +12,5 @@
 /Nucleotidz.Kafka.Serializer/obj
 /Nucleotidz.Kafka.Serializer/bin/Debug/net6.0
 /SchemaRegistry/Nucleotidz.Kafka.SchemaRegistry/bin/Debug/net6.0
+/Serializer/Nucleotidz.Kafka.Serializer/obj
+/Serializer/Nucleotidz.Kafka.Serializer/bin/Debug/net6.0
