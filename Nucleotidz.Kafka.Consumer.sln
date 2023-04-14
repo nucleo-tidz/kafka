@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nucleotidz.Kafka.Serializer
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{0CE28804-3B7F-4729-81CF-659D656EBCDA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Consumer.Example", "Example\Consumer.Example\Consumer.Example.csproj", "{B68DB962-A67A-4860-AA48-8C3316E53D01}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nucleotidz.Consumer.Json", "Example\Nucleotidz.Consumer.Json\Nucleotidz.Consumer.Json.csproj", "{9285039E-6F29-430E-BA8F-E4CC4D59BA8E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,16 +37,16 @@ Global
 		{F9B9F7A6-17AA-4769-BDC6-A48F7765987F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9B9F7A6-17AA-4769-BDC6-A48F7765987F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9B9F7A6-17AA-4769-BDC6-A48F7765987F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B68DB962-A67A-4860-AA48-8C3316E53D01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B68DB962-A67A-4860-AA48-8C3316E53D01}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B68DB962-A67A-4860-AA48-8C3316E53D01}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B68DB962-A67A-4860-AA48-8C3316E53D01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9285039E-6F29-430E-BA8F-E4CC4D59BA8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9285039E-6F29-430E-BA8F-E4CC4D59BA8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9285039E-6F29-430E-BA8F-E4CC4D59BA8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9285039E-6F29-430E-BA8F-E4CC4D59BA8E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{B68DB962-A67A-4860-AA48-8C3316E53D01} = {0CE28804-3B7F-4729-81CF-659D656EBCDA}
+		{9285039E-6F29-430E-BA8F-E4CC4D59BA8E} = {0CE28804-3B7F-4729-81CF-659D656EBCDA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F7EA82D1-90A9-473A-9B69-475D721BEF45}

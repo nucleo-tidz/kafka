@@ -26,7 +26,7 @@ namespace Nucleotidz.Kafka.Consumer
             services.AddHostedService<Consumer<TKey, TValue>>();
             return services;
         }
-        public static IServiceCollection AdJsonConsumer<TKey, TValue>(this IServiceCollection services,
+        public static IServiceCollection AddJsonConsumer<TKey, TValue>(this IServiceCollection services,
            IConfiguration configuration, string ConsumerConfigurationSection, string SchemaRegistryConfigurationSection)
             where TKey : class
             where TValue : class

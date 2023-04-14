@@ -3,6 +3,7 @@ using Confluent.SchemaRegistry.Serdes;
 using Confluent.SchemaRegistry;
 using Nucleotidz.Kafka.Abstraction;
 using Confluent.Kafka.SyncOverAsync;
+using NJsonSchema.Generation;
 
 namespace Nucleotidz.Kafka.Serializer
 {
@@ -21,7 +22,8 @@ namespace Nucleotidz.Kafka.Serializer
 
         public IDeserializer<T> CreateDeserializer<T>() where T : class
         {
-            return new JsonDeserializer<T>().AsSyncOverAsync();
+            var JsonSetting = new JsonSchemaGeneratorSettings();
+            return new NuceloJsonSerializer<T>(jsonSchemaGeneratorSettings: JsonSetting).AsSyncOverAsync();
         }
     }
 }

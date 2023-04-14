@@ -21,7 +21,7 @@ namespace Nucleotidz.Kafka.Serializer
 
         public  IDeserializer<T> CreateDeserializer<T>() where T : class
         {
-            return new NuceloSerializer<T>(_schemaRegistryClient).AsSyncOverAsync();
+            return new NuceloAvroSerializer<T>(_schemaRegistryClient).AsSyncOverAsync();
         }
     } 
 }
