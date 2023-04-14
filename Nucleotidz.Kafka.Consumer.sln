@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{0C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nucleotidz.Consumer.Json", "Example\Nucleotidz.Consumer.Json\Nucleotidz.Consumer.Json.csproj", "{9285039E-6F29-430E-BA8F-E4CC4D59BA8E}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nucleotidz.Consumer.Avro", "Example\Nucleotidz.Consumer.Avro\Nucleotidz.Consumer.Avro.csproj", "{50B8C3D2-92A4-4C6B-B55B-404F40354840}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,12 +43,17 @@ Global
 		{9285039E-6F29-430E-BA8F-E4CC4D59BA8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9285039E-6F29-430E-BA8F-E4CC4D59BA8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9285039E-6F29-430E-BA8F-E4CC4D59BA8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50B8C3D2-92A4-4C6B-B55B-404F40354840}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50B8C3D2-92A4-4C6B-B55B-404F40354840}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50B8C3D2-92A4-4C6B-B55B-404F40354840}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50B8C3D2-92A4-4C6B-B55B-404F40354840}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{9285039E-6F29-430E-BA8F-E4CC4D59BA8E} = {0CE28804-3B7F-4729-81CF-659D656EBCDA}
+		{50B8C3D2-92A4-4C6B-B55B-404F40354840} = {0CE28804-3B7F-4729-81CF-659D656EBCDA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F7EA82D1-90A9-473A-9B69-475D721BEF45}
