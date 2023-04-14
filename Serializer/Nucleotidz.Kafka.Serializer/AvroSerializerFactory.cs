@@ -6,7 +6,7 @@ using Confluent.Kafka.SyncOverAsync;
 
 namespace Nucleotidz.Kafka.Serializer
 {
-    public class AvroSerializerFactory 
+    public class AvroSerializerFactory : ISerializerFactory
     {
         ISchemaRegistryClient _schemaRegistryClient;
         public AvroSerializerFactory(ISchemaRegistryFactory schemaRegistryFactory)

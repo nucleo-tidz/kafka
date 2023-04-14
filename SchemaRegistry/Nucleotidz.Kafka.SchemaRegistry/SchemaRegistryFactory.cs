@@ -13,7 +13,7 @@
         }
         public CachedSchemaRegistryClient Create()
         {
-            ArgumentNullException.ThrowIfNull(_schemaRegistryConfiguration);
+            ArgumentNullException.ThrowIfNull(_schemaRegistryConfiguration,nameof(_schemaRegistryConfiguration));
 
             if (string.IsNullOrWhiteSpace(_schemaRegistryConfiguration.Url))
                 throw new ArgumentNullException(nameof(_schemaRegistryConfiguration.Url));
