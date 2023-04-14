@@ -1,15 +1,8 @@
 ﻿using Confluent.Kafka;
-using Confluent.SchemaRegistry.Serdes;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
-using Newtonsoft.Json.Linq;
 using Nucleotidz.Kafka.Abstraction;
 using Nucleotidz.Kafka.Abstraction.Options;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Nucleotidz.Kafka.Consumer
 {
