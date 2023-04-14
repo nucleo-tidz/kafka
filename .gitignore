@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Consumer/Nucleotidz.Kafka.Consumer/obj
+/Consumer/Nucleotidz.Kafka.Consumer/.vs
+/.vs
