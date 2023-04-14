@@ -69,7 +69,24 @@ namespace Nucleotidz.Kafka.Consumer
                     }
 
                     var offsets = await _handler.HandleAsync(buffer, stoppingToken);
-                    consumer.Commit(offsets);
+                    var topicPartitionGroup = offsets.GroupBy(_ => new
+                    {
+                        _.Topic,
+                        _.Partition.Value
+                    });
+                   
+                    foreach (var topicPartition in topicPartitionGroup)
+                    {
+                        var offset = topicPartition.OrderBy(o => o.Offset.Value).LastOrDefault();
+
+                        if (offset is null)
+                        {
+                            continue;
+                        }
+                        var offsetToCommit = new TopicPartitionOffset(offset.TopicPartition, offset.Offset + 1);
+                        consumer.Commit(new[] { offsetToCommit });
+                    }
+                        
                     buffer.Clear();
                     lastReset = GetUtcTime();
                 }

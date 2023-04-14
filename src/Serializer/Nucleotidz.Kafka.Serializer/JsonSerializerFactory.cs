@@ -22,8 +22,8 @@ namespace Nucleotidz.Kafka.Serializer
 
         public IDeserializer<T> CreateDeserializer<T>() where T : class
         {
-            var JsonSetting = new JsonSchemaGeneratorSettings();
-            return new NuceloJsonSerializer<T>(jsonSchemaGeneratorSettings: JsonSetting).AsSyncOverAsync();
+            
+            return new NuceloJsonSerializer<T>().AsSyncOverAsync();
         }
     }
 }
