@@ -2,18 +2,8 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/Consumer/Nucleotidz.Kafka.Consumer/obj
-/Consumer/Nucleotidz.Kafka.Consumer/.vs
-/.vs
-/Abstraction/Nucleotidz.Kafka.Abstraction/bin/Debug/net6.0
-/Abstraction/Nucleotidz.Kafka.Abstraction/obj
-/SchemaRegistry/Nucleotidz.Kafka.SchemaRegistry/obj
-/Consumer/Nucleotidz.Kafka.Consumer/bin/Debug/net6.0
-/Nucleotidz.Kafka.Serializer/obj
-/Nucleotidz.Kafka.Serializer/bin/Debug/net6.0
-/SchemaRegistry/Nucleotidz.Kafka.SchemaRegistry/bin/Debug/net6.0
-/Serializer/Nucleotidz.Kafka.Serializer/obj
-/Serializer/Nucleotidz.Kafka.Serializer/bin/Debug/net6.0
-/Example/Cosnumer.Example/bin/Debug/net6.0
-/Example/Cosnumer.Example/obj
+**/.vs
 /Example/Cosnumer.Example/appsettings.Local.json
+**/[Bb]in/
+**/[Oo]bj/
+

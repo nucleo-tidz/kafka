@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nucleotidz.Kafka.Serializer
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{0CE28804-3B7F-4729-81CF-659D656EBCDA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Consumer.Example", "Example\Cosnumer.Example\Consumer.Example.csproj", "{B68DB962-A67A-4860-AA48-8C3316E53D01}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Consumer.Example", "Example\Consumer.Example\Consumer.Example.csproj", "{B68DB962-A67A-4860-AA48-8C3316E53D01}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
