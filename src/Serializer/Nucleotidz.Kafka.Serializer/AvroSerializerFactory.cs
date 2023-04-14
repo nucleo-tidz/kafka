@@ -1,27 +1,27 @@
 ﻿using Confluent.Kafka;
-using Confluent.SchemaRegistry.Serdes;
-using Confluent.SchemaRegistry;
-using Nucleotidz.Kafka.Abstraction;
 using Confluent.Kafka.SyncOverAsync;
+using Confluent.SchemaRegistry;
+using Confluent.SchemaRegistry.Serdes;
+using Nucleotidz.Kafka.Abstraction;
 
 namespace Nucleotidz.Kafka.Serializer
 {
     public class AvroSerializerFactory : ISerializerFactory
     {
-        ISchemaRegistryClient _schemaRegistryClient;
+        private readonly ISchemaRegistryClient _schemaRegistryClient;
         public AvroSerializerFactory(ISchemaRegistryFactory schemaRegistryFactory)
         {
             _schemaRegistryClient = schemaRegistryFactory.Create();
         }
-        public  ISerializer<T> CreateSerializer<T>() 
-            where T : class 
+        public ISerializer<T> CreateSerializer<T>()
+            where T : class
         {
             return new AvroSerializer<T>(_schemaRegistryClient).AsSyncOverAsync();
         }
 
-        public  IDeserializer<T> CreateDeserializer<T>() where T : class
+        public IDeserializer<T> CreateDeserializer<T>() where T : class
         {
             return new NuceloAvroSerializer<T>(_schemaRegistryClient).AsSyncOverAsync();
         }
-    } 
+    }
 }

@@ -1,7 +1,4 @@
 ﻿using Confluent.Kafka;
-using Confluent.SchemaRegistry;
-using Confluent.SchemaRegistry.Serdes;
-using NJsonSchema.Generation;
 
 namespace Nucleotidz.Kafka.Serializer
 {
@@ -14,7 +11,9 @@ namespace Nucleotidz.Kafka.Serializer
         public new Task<T> DeserializeAsync(ReadOnlyMemory<byte> data, bool isNull, SerializationContext context)
         {
             if (isNull)
+            {
                 return Task.FromResult(default(T));
+            }
             else
             {
                 return base.DeserializeAsync(data, isNull, context);

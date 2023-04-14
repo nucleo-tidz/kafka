@@ -6,13 +6,13 @@ using Nucleotidz.Kafka.Abstraction.Options;
 
 namespace Nucleotidz.Kafka.Consumer
 {
-    public class Consumer<TKey, TValue> : BackgroundService 
+    public class Consumer<TKey, TValue> : BackgroundService
         where TKey : class
-        where TValue: class
+        where TValue : class
     {
-        readonly ConsumerConfiguration _consumerConfiguration;
-        readonly ISerializerFactory _serializerFactory;
-        readonly IHandler<TKey, TValue> _handler;
+        private readonly ConsumerConfiguration _consumerConfiguration;
+        private readonly ISerializerFactory _serializerFactory;
+        private readonly IHandler<TKey, TValue> _handler;
         public Consumer(IOptions<ConsumerConfiguration> _consumerConfigurationOption, ISerializerFactory serializerFactory, IHandler<TKey, TValue> handler)
         {
             _consumerConfiguration = _consumerConfigurationOption.Value;
@@ -40,56 +40,54 @@ namespace Nucleotidz.Kafka.Consumer
         }
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            var buffer = new List<ConsumeResult<TKey, TValue>>();
-            var lastReset = GetUtcTime();
-            using (var consumer =
+            List<ConsumeResult<TKey, TValue>> buffer = new();
+            DateTimeOffset lastReset = GetUtcTime();
+            using IConsumer<TKey, TValue> consumer =
                 new ConsumerBuilder<TKey, TValue>(CreateConfiguration())
                     .SetKeyDeserializer(_serializerFactory.CreateDeserializer<TKey>())
                     .SetValueDeserializer(_serializerFactory.CreateDeserializer<TValue>())
-                    .Build())
+                    .Build();
+            consumer.Subscribe(_consumerConfiguration.Topic);
+            while (!stoppingToken.IsCancellationRequested)
             {
-                consumer.Subscribe(_consumerConfiguration.Topic);
-                while (!stoppingToken.IsCancellationRequested)
+                var consumedMessage = consumer.Consume(TimeSpan.FromMilliseconds(1000));
+                if (consumedMessage?.Message is not null)
                 {
-                    var consumedMessage = consumer.Consume(TimeSpan.FromMilliseconds(1000));
-                    if (consumedMessage?.Message is not null)
-                    {
-                        buffer.Add(consumedMessage);
-                        var timeSinceLastReset = GetUtcTime() - lastReset;
+                    buffer.Add(consumedMessage);
+                    TimeSpan timeSinceLastReset = GetUtcTime() - lastReset;
 
-                        if (buffer.Count < _consumerConfiguration.BatchSize &&
-                            timeSinceLastReset.TotalSeconds < _consumerConfiguration.TimeOut)
-                        {
-                            continue;
-                        }
-                    }
-                    if (!buffer.Any())
+                    if (buffer.Count < _consumerConfiguration.BatchSize &&
+                        timeSinceLastReset.TotalSeconds < _consumerConfiguration.TimeOut)
                     {
                         continue;
                     }
-
-                    var offsets = await _handler.HandleAsync(buffer, stoppingToken);
-                    var topicPartitionGroup = offsets.GroupBy(_ => new
-                    {
-                        _.Topic,
-                        _.Partition.Value
-                    });
-                   
-                    foreach (var topicPartition in topicPartitionGroup)
-                    {
-                        var offset = topicPartition.OrderBy(o => o.Offset.Value).LastOrDefault();
-
-                        if (offset is null)
-                        {
-                            continue;
-                        }
-                        var offsetToCommit = new TopicPartitionOffset(offset.TopicPartition, offset.Offset + 1);
-                        consumer.Commit(new[] { offsetToCommit });
-                    }
-                        
-                    buffer.Clear();
-                    lastReset = GetUtcTime();
                 }
+                if (!buffer.Any())
+                {
+                    continue;
+                }
+
+                var offsets = await _handler.HandleAsync(buffer, stoppingToken);
+                var topicPartitionGroup = offsets.GroupBy(_ => new
+                {
+                    _.Topic,
+                    _.Partition.Value
+                });
+
+                foreach (var topicPartition in topicPartitionGroup)
+                {
+                    TopicPartitionOffset? offset = topicPartition.OrderBy(o => o.Offset.Value).LastOrDefault();
+
+                    if (offset is null)
+                    {
+                        continue;
+                    }
+                    TopicPartitionOffset offsetToCommit = new(offset.TopicPartition, offset.Offset + 1);
+                    consumer.Commit(new[] { offsetToCommit });
+                }
+
+                buffer.Clear();
+                lastReset = GetUtcTime();
             }
         }
         private DateTimeOffset GetUtcTime()

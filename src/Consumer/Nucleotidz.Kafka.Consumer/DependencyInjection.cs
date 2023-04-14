@@ -4,11 +4,6 @@ using Nucleotidz.Kafka.Abstraction;
 using Nucleotidz.Kafka.Abstraction.Options;
 using Nucleotidz.Kafka.SchemaRegistry;
 using Nucleotidz.Kafka.Serializer;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Nucleotidz.Kafka.Consumer
 {

@@ -1,4 +1,4 @@
-﻿namespace Nucleotidz.Kafka.Abstraction
+﻿namespace Nucleotidz.Kafka.Abstraction.Options
 {
     public class SchemaRegistryConfiguration
     {

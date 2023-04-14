@@ -1,15 +1,14 @@
 ﻿using Confluent.Kafka;
-using Confluent.SchemaRegistry.Serdes;
-using Confluent.SchemaRegistry;
-using Nucleotidz.Kafka.Abstraction;
 using Confluent.Kafka.SyncOverAsync;
-using NJsonSchema.Generation;
+using Confluent.SchemaRegistry;
+using Confluent.SchemaRegistry.Serdes;
+using Nucleotidz.Kafka.Abstraction;
 
 namespace Nucleotidz.Kafka.Serializer
 {
     public class JsonSerializerFactory : ISerializerFactory
     {
-        ISchemaRegistryClient _schemaRegistryClient;
+        private readonly ISchemaRegistryClient _schemaRegistryClient;
         public JsonSerializerFactory(ISchemaRegistryFactory schemaRegistryFactory)
         {
             _schemaRegistryClient = schemaRegistryFactory.Create();
@@ -22,7 +21,7 @@ namespace Nucleotidz.Kafka.Serializer
 
         public IDeserializer<T> CreateDeserializer<T>() where T : class
         {
-            
+
             return new NuceloJsonSerializer<T>().AsSyncOverAsync();
         }
     }
