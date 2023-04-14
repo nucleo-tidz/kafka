@@ -30,11 +30,15 @@ services.AddQueueClient(hostContext.Configuration.GetSection("StoargeConfigurati
 **Send**
 - To consume Json data
 ```
+    services.AddTransient<IErrorHandler<AnimalKey, Animal>>(_ => default);
+     services.AddTransient<IPartitionsAssignedHandler<employeeKey, employeeMessage>>(_ => default);
    services.AddTransient<IHandler<Key, Value>, Worker>();
         services.AddJsonConsumer<Key, Value>(hostContext.Configuration, "Kafka", "Kafka:SchemaRegistry");
 ```
 - To consume Avro data
 ```
+   services.AddTransient<IErrorHandler<AnimalKey, Animal>>(_ => default);
+     services.AddTransient<IPartitionsAssignedHandler<employeeKey, employeeMessage>>(_ => default);
      services.AddTransient<IHandler<Key, Value>, Worker>();
         services.AddAvroConsumer<Key, Value>(hostContext.Configuration, "Kafka", "Kafka:SchemaRegistry");
 ```
