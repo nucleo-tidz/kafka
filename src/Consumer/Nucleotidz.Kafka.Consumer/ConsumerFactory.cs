@@ -11,7 +11,7 @@ namespace Nucleotidz.Kafka.Consumer
     {
         private readonly ConsumerConfiguration _consumerConfiguration;
         private readonly ISerializerFactory _serializerFactory;
-        private readonly IErrorHandler<TKey,TValue> _errorHandler;
+        private readonly IConsumerErrorHandler<TKey,TValue> _errorHandler;
         private readonly IPartitionsAssignedHandler<TKey, TValue> _partitionsAssignedHandler;
         private readonly HashSet<Type> _defaultDeserializers = new()
     {
@@ -25,7 +25,7 @@ namespace Nucleotidz.Kafka.Consumer
         typeof(byte[]),
     };
         public ConsumerFactory(IOptions<ConsumerConfiguration> _consumerConfigurationOption, ISerializerFactory serializerFactory,
-            IErrorHandler<TKey, TValue> errorHandler, IPartitionsAssignedHandler<TKey, TValue> partitionsAssignedHandler)
+            IConsumerErrorHandler<TKey, TValue> errorHandler, IPartitionsAssignedHandler<TKey, TValue> partitionsAssignedHandler)
         {
             _errorHandler = errorHandler;
             _consumerConfiguration = _consumerConfigurationOption.Value;

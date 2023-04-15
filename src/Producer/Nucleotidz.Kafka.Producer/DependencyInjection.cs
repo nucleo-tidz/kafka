@@ -6,7 +6,7 @@ using Nucleotidz.Kafka.Abstraction.Options;
 using Nucleotidz.Kafka.SchemaRegistry;
 using Nucleotidz.Kafka.Serializer;
 
-namespace Nucleotidz.Kafka.Consumer
+namespace Nucleotidz.Kafka.Producer
 {
     public static class DependencyInjection
     {
@@ -21,15 +21,15 @@ namespace Nucleotidz.Kafka.Consumer
             services.AddTransient<ISerializerFactory, JsonSerializerFactory>();
             return services;
         }
-        public static IServiceCollection AddConsumer<TKey, TValue>(this IServiceCollection services,
-            IConfiguration configuration, string ConsumerConfigurationSection, string SchemaRegistryConfigurationSection, SerializationScheme serializationScheme)
+        public static IServiceCollection AddProducer<TKey, TValue>(this IServiceCollection services,
+            IConfiguration configuration, string producerConfigurationSection, string SchemaRegistryConfigurationSection, SerializationScheme serializationScheme)
             where TKey : class
             where TValue : class
         {
-            services.Configure<ConsumerConfiguration>(configuration.GetSection(ConsumerConfigurationSection));
+            services.Configure<ProducerConfiguration>(configuration.GetSection(producerConfigurationSection));
             services.Configure<SchemaRegistryConfiguration>(configuration.GetSection(SchemaRegistryConfigurationSection));
             services.AddTransient<ISchemaRegistryFactory, SchemaRegistryFactory>();
-            services.AddTransient<IConsumerFactory<TKey, TValue>, ConsumerFactory<TKey, TValue>>();
+            services.AddTransient<IProducerFactory<TKey, TValue>, ProducerFactory<TKey, TValue>>();
             if (serializationScheme == SerializationScheme.avro)
             {
                 services.AddAvro();
@@ -42,7 +42,7 @@ namespace Nucleotidz.Kafka.Consumer
             {
                 throw new NotSupportedException();
             }
-            services.AddHostedService<Consumer<TKey, TValue>>();
+            services.AddTransient<IMessageProducer<TKey, TValue>, Producer<TKey, TValue>>();
             return services;
         }
     }

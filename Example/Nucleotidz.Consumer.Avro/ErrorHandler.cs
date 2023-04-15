@@ -11,7 +11,7 @@ using Confluent.Kafka;
 
 namespace Nucleotidz.Consumer.Avro
 {
-    public class ErrorHandler : IErrorHandler<employeeKey, employeeMessage>
+    public class ErrorHandler : IConsumerErrorHandler<employeeKey, employeeMessage>
     {
         public void Handle(IConsumer<employeeKey, employeeMessage> consumer, Error error)
         {

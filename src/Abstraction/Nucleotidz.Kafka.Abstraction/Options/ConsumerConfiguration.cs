@@ -2,16 +2,9 @@
 
 namespace Nucleotidz.Kafka.Abstraction.Options
 {
-    public class ConsumerConfiguration
+    public class ConsumerConfiguration : Configuration
     {
-        public string Username { get; set; }
-
-        public string Password { get; set; }
-        public IEnumerable<string> BootstrapServers { get; set; }
-
         public AutoOffsetReset AutoOffsetReset { get; set; } = AutoOffsetReset.Earliest;
-
-        public string Topic { get; set; }
 
         public int BatchSize { get; set; } = 100;
 
@@ -21,7 +14,6 @@ namespace Nucleotidz.Kafka.Abstraction.Options
 
         public int TimeOut { get; set; } = 5000;
 
-        public string Debug { get; set; } 
-
+        public string Debug { get; set; }
     }
 }
