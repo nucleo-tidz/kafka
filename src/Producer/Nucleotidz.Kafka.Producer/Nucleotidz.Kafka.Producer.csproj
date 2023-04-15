@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	  <RootNamespace>Nucleotidz.Kafka.Producer</RootNamespace>
+	  <AssemblyName>Nucleotidz.Kafka.Producer</AssemblyName>
+	  <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+	  <CodeAnalysisTreatWarningsAsErrors>false</CodeAnalysisTreatWarningsAsErrors>
+	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	  <PackageId>Nucleotidz.Kafka.Producer</PackageId>
+	  <!--<Version>1.0.4</Version>-->
+	  <Authors>Ahmar Husain</Authors>
+	  <Company>Nucleotidz</Company>
+	  <Product>Nucleotidz.Kafka.Producer</Product>
+	  <Description>Lightweight library to consume from kafka</Description>
+	  <PackageProjectUrl>https://github.com/nucleo-tidz/kafka</PackageProjectUrl>
+	  <RepositoryUrl>https://github.com/nucleo-tidz/kafka</RepositoryUrl>
+	  <RepositoryType>git</RepositoryType>
+	  <PackageTags>nucleotidz kafka Producer</PackageTags>
+  </PropertyGroup>
+
+</Project>

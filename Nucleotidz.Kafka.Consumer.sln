@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nucleotidz.Consumer.Json", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nucleotidz.Consumer.Avro", "Example\Nucleotidz.Consumer.Avro\Nucleotidz.Consumer.Avro.csproj", "{50B8C3D2-92A4-4C6B-B55B-404F40354840}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nucleotidz.Kafka.Producer", "src\Producer\Nucleotidz.Kafka.Producer\Nucleotidz.Kafka.Producer.csproj", "{4BE08627-7574-4618-8840-3764BC3ADE5D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{50B8C3D2-92A4-4C6B-B55B-404F40354840}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50B8C3D2-92A4-4C6B-B55B-404F40354840}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50B8C3D2-92A4-4C6B-B55B-404F40354840}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BE08627-7574-4618-8840-3764BC3ADE5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BE08627-7574-4618-8840-3764BC3ADE5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BE08627-7574-4618-8840-3764BC3ADE5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BE08627-7574-4618-8840-3764BC3ADE5D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
