@@ -11,7 +11,7 @@ IHost host = Host.CreateDefaultBuilder(args)
         services.AddTransient<IErrorHandler<employeeKey, employeeMessage>, ErrorHandler>();
         services.AddTransient<IPartitionsAssignedHandler<employeeKey, employeeMessage>>(_ => default);
         services.AddTransient<IHandler<employeeKey, employeeMessage>, Worker>();
-        services.AddAvroConsumer<employeeKey, employeeMessage>(hostContext.Configuration, "Kafka", "Kafka:SchemaRegistry");
+        services.AddConsumer<employeeKey, employeeMessage>(hostContext.Configuration, "Kafka", "Kafka:SchemaRegistry",SerializationScheme.avro);
     })
     .Build();
 

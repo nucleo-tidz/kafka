@@ -24,24 +24,12 @@ A light weight nuget package to consume events from a kafka topic written on .NE
 
 **Depenedency Injection**
 ```
-services.AddQueueClient(hostContext.Configuration.GetSection("StoargeConfiguration"));
+     services.AddTransient<IErrorHandler<AnimalKey, Animal>>(_ => default);
+     services.AddTransient<IPartitionsAssignedHandler<employeeKey, employeeMessage>>(_ => default);
+     services.AddTransient<IHandler<Key, Value>, Worker>();
+     services.AddConsumer<Key, Value>(hostContext.Configuration, "Kafka", "Kafka:SchemaRegistry", SerializationScheme.avro);
+```
 
-```
-**Send**
-- To consume Json data
-```
-     services.AddTransient<IErrorHandler<AnimalKey, Animal>>(_ => default);
-     services.AddTransient<IPartitionsAssignedHandler<employeeKey, employeeMessage>>(_ => default);
-     services.AddTransient<IHandler<Key, Value>, Worker>();
-     services.AddJsonConsumer<Key, Value>(hostContext.Configuration, "Kafka", "Kafka:SchemaRegistry");
-```
-- To consume Avro data
-```
-     services.AddTransient<IErrorHandler<AnimalKey, Animal>>(_ => default);
-     services.AddTransient<IPartitionsAssignedHandler<employeeKey, employeeMessage>>(_ => default);
-     services.AddTransient<IHandler<Key, Value>, Worker>();
-     services.AddAvroConsumer<Key, Value>(hostContext.Configuration, "Kafka", "Kafka:SchemaRegistry");
-```
 **Worker**
 ```
   public class Worker : IHandler<Key, Value>

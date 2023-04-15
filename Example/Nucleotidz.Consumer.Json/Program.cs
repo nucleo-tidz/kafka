@@ -9,7 +9,7 @@ IHost host = Host.CreateDefaultBuilder(args)
         services.AddTransient<IPartitionsAssignedHandler<AnimalKey, Animal>, PartitionsAssignedHandler>();
         services.AddTransient<IErrorHandler<AnimalKey, Animal>>(_ => default);
         services.AddTransient<IHandler<AnimalKey, Animal>, Worker>();
-        services.AddJsonConsumer<AnimalKey, Animal>(hostContext.Configuration, "Kafka", "Kafka:SchemaRegistry");
+        services.AddConsumer<AnimalKey, Animal>(hostContext.Configuration, "Kafka", "Kafka:SchemaRegistry", SerializationScheme.json);
     })
     .Build();
 
