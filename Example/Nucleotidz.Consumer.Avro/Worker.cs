@@ -12,6 +12,7 @@ namespace Nucleotidz.Consumer.Avro
     {
         public async Task<IEnumerable<TopicPartitionOffset>> HandleAsync(IEnumerable<ConsumeResult<employeeKey, employeeMessage>> consumeResults, CancellationToken cancellationToken)
         {
+            await Task.CompletedTask;
             Console.WriteLine(consumeResults.Count().ToString());
             return consumeResults.Select(cr => cr.TopicPartitionOffset);           
         }
