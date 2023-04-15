@@ -28,7 +28,7 @@ namespace Nucleotidz.Kafka.Producer
             IProducerErrorHandler<TKey, TValue> errorHandler)
         {
             ArgumentNullException.ThrowIfNull(producerConfigurationOption, nameof(producerConfigurationOption));
-            ArgumentNullException.ThrowIfNull(_serializerFactory, nameof(_serializerFactory));
+            ArgumentNullException.ThrowIfNull(serializerFactory, nameof(serializerFactory));
             _producerConfiguration = producerConfigurationOption.Value;
             _serializerFactory = serializerFactory;
             _errorHandler = errorHandler;

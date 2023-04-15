@@ -17,10 +17,11 @@ namespace Nucleotidz.Kafka.Producer
             _producerConfiguration = producerConfigurationOption.Value;
         }
 
-        public virtual void Produce(Message<TKey, TValue> message, Action<DeliveryReport<TKey, TValue>> deliveryHandler = null)
+        public virtual async Task<DeliveryResult<TKey, TValue>> Produce(Message<TKey, TValue> message, Action<DeliveryReport<TKey, TValue>> deliveryHandler = null)
         {
-            _producer.Produce(_producerConfiguration.Topic, message, deliveryHandler);
+            var deilvryResult= await _producer.ProduceAsync(_producerConfiguration.Topic, message);
             _producer.Flush();
+            return deilvryResult;
         }
     }
 }

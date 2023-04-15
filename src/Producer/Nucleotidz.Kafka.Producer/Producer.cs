@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Options;
 using Nucleotidz.Kafka.Abstraction;
 using Nucleotidz.Kafka.Abstraction.Options;
+using System.Threading.Tasks;
 
 namespace Nucleotidz.Kafka.Producer
 {
@@ -12,9 +13,9 @@ namespace Nucleotidz.Kafka.Producer
         public Producer(IProducerFactory<TKey, TValue> producerFactory, IOptions<ProducerConfiguration> producerConfigurationOption)
             : base(producerFactory, producerConfigurationOption)
         { }
-        public override void Produce(Message<TKey, TValue> message, Action<DeliveryReport<TKey, TValue>> deliveryHandler = null)
+        public override async Task<DeliveryResult<TKey, TValue>> Produce(Message<TKey, TValue> message, Action<DeliveryReport<TKey, TValue>> deliveryHandler = null)
         {
-            base.Produce(message, deliveryHandler);
+           return await base.Produce(message, deliveryHandler);
         }
     }
 }
