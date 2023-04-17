@@ -6,6 +6,6 @@ namespace Nucleotidz.Kafka.Abstraction
         where TKey : class
         where TValue : class
     {
-        Task<DeliveryResult<TKey, TValue>> Produce(Message<TKey, TValue> message, Action<DeliveryReport<TKey, TValue>> deliveryHandler = null);
+        Task<DeliveryResult<TKey, TValue>> Produce(Message<TKey, TValue> message);
     }
 }

@@ -13,9 +13,9 @@ namespace Nucleotidz.Kafka.Producer
         public Producer(IProducerFactory<TKey, TValue> producerFactory, IOptions<ProducerConfiguration> producerConfigurationOption)
             : base(producerFactory, producerConfigurationOption)
         { }
-        public override async Task<DeliveryResult<TKey, TValue>> Produce(Message<TKey, TValue> message, Action<DeliveryReport<TKey, TValue>> deliveryHandler = null)
+        public override async Task<DeliveryResult<TKey, TValue>> Produce(Message<TKey, TValue> message)
         {
-           return await base.Produce(message, deliveryHandler);
+           return await base.Produce(message);
         }
     }
 }

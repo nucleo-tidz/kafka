@@ -17,9 +17,9 @@ namespace Nucleotidz.Kafka.Producer
             _producerConfiguration = producerConfigurationOption.Value;
         }
 
-        public virtual async Task<DeliveryResult<TKey, TValue>> Produce(Message<TKey, TValue> message, Action<DeliveryReport<TKey, TValue>> deliveryHandler = null)
+        public virtual async Task<DeliveryResult<TKey, TValue>> Produce(Message<TKey, TValue> message)
         {
-            var deilvryResult= await _producer.ProduceAsync(_producerConfiguration.Topic, message);
+            var deilvryResult= await _producer.ProduceAsync(_producerConfiguration.Topic,message);
             _producer.Flush();
             return deilvryResult;
         }
