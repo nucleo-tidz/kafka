@@ -17,7 +17,7 @@ on:
 jobs:
   build:
     env:
-      solution: '${{ github.workspace }}/Nucleotidz.Kafka.Consumer.sln'
+      solution: '${{ github.workspace }}/Nucleotidz.Kafka.sln'
       feedurl : 'https://nuget.pkg.github.com/nucleo-tidz/index.json'
     name: publish
     runs-on: ubuntu-latest
