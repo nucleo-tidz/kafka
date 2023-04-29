@@ -38,7 +38,7 @@ jobs:
     needs: semver
     if: ${{ needs.semver.steps.checksemver.outputs.IsSemanticVersion }}=='true'
     env:
-      solution: '${{ github.workspace }}/Nucleotidz.Kafka.Consumer.sln'
+      solution: '${{ github.workspace }}/Nucleotidz.Kafka.sln'
       feedurl : 'https://nuget.pkg.github.com/nucleo-tidz/index.json'
     name: publish
     runs-on: ubuntu-latest
