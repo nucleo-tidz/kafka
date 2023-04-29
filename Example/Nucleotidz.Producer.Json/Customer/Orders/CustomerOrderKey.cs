@@ -5,7 +5,7 @@
 //    is regenerated
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace com.nucleotidz.employee
+namespace Customer.Orders
 {
 	using System;
 	using System.Collections.Generic;
@@ -13,34 +13,34 @@ namespace com.nucleotidz.employee
 	using Avro;
 	using Avro.Specific;
 	
-	public partial class employeeMessage : ISpecificRecord
+	public partial class CustomerOrderKey : ISpecificRecord
 	{
-		public static Schema _SCHEMA = Avro.Schema.Parse("{\"type\":\"record\",\"name\":\"employeeMessage\",\"namespace\":\"com.nucleotidz.employee\",\"" +
-				"fields\":[{\"name\":\"Name\",\"type\":\"string\"}]}");
-		private string _Name;
+		public static Schema _SCHEMA = Avro.Schema.Parse("{\"type\":\"record\",\"name\":\"CustomerOrderKey\",\"namespace\":\"Customer.Orders\",\"fields\"" +
+				":[{\"name\":\"orderNumber\",\"type\":\"string\"}]}");
+		private string _orderNumber;
 		public virtual Schema Schema
 		{
 			get
 			{
-				return employeeMessage._SCHEMA;
+				return CustomerOrderKey._SCHEMA;
 			}
 		}
-		public string Name
+		public string orderNumber
 		{
 			get
 			{
-				return this._Name;
+				return this._orderNumber;
 			}
 			set
 			{
-				this._Name = value;
+				this._orderNumber = value;
 			}
 		}
 		public virtual object Get(int fieldPos)
 		{
 			switch (fieldPos)
 			{
-			case 0: return this.Name;
+			case 0: return this.orderNumber;
 			default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Get()");
 			};
 		}
@@ -48,7 +48,7 @@ namespace com.nucleotidz.employee
 		{
 			switch (fieldPos)
 			{
-			case 0: this.Name = (System.String)fieldValue; break;
+			case 0: this.orderNumber = (System.String)fieldValue; break;
 			default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Put()");
 			};
 		}

@@ -1,6 +1,6 @@
-using com.nucleotidz.employee;
-using com.nucleotidz.employee.key;
+
 using Confluent.Kafka;
+using Customer.Orders;
 using Nucleotidz.Kafka.Abstraction;
 
 namespace Nucleotidz.Producer.Avro
@@ -8,8 +8,8 @@ namespace Nucleotidz.Producer.Avro
     public class Worker : BackgroundService
     {
         private readonly ILogger<Worker> _logger;
-        private readonly IMessageProducer<employeeKey, employeeMessage> _messageProducer;
-        public Worker(ILogger<Worker> logger, IMessageProducer<employeeKey, employeeMessage> messageProducer)
+        private readonly IMessageProducer<CustomerOrderKey, CustomerOrder> _messageProducer;
+        public Worker(ILogger<Worker> logger, IMessageProducer<CustomerOrderKey, CustomerOrder> messageProducer)
         {
             _messageProducer = messageProducer;
             _logger = logger;
@@ -17,15 +17,18 @@ namespace Nucleotidz.Producer.Avro
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            Message<employeeKey, employeeMessage> message = new Message<employeeKey, employeeMessage>();
-            message.Value = new employeeMessage { Name = "Tom" };
-            message.Key = new employeeKey { Id = "TM100" };
-            var result = await _messageProducer.Produce(message);
-            if (result.Status == PersistenceStatus.Persisted || result.Status == PersistenceStatus.PossiblyPersisted)
+            for (int i = 0; i < 5; i++)
             {
-                _logger.LogInformation("Message Prdouced");
+                Message<CustomerOrderKey, CustomerOrder> message = new Message<CustomerOrderKey, CustomerOrder>();
+                message.Value = new CustomerOrder { status = "L", orderNumber = $"OD{i.ToString()}", orderItems = new List<Items> { new Items { Name = "Car", quantity = 1 } } };
+                message.Key = new CustomerOrderKey { orderNumber = $"OD{i.ToString()}" };
+                var result = await _messageProducer.Produce(message);
+                if (result.Status == PersistenceStatus.Persisted || result.Status == PersistenceStatus.PossiblyPersisted)
+                {
+                    _logger.LogInformation("Message Prdouced");
+                }
+                await Task.CompletedTask;
             }
-            await Task.CompletedTask;
         }
     }
 }
