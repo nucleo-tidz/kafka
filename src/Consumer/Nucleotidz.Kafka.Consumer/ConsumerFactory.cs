@@ -57,8 +57,9 @@ namespace Nucleotidz.Kafka.Consumer
             return new ConsumerConfig
             {
                 BootstrapServers = string.Join(",", _consumerConfiguration.BootstrapServers),
-                EnableAutoCommit = true,
+                EnableAutoCommit = false,
                 EnableAutoOffsetStore = false,
+                AutoCommitIntervalMs = 2000,
                 GroupId = _consumerConfiguration.GroupName,
                 ClientId = _consumerConfiguration.ClientId,
                 SecurityProtocol = SecurityProtocol.SaslSsl,
