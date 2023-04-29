@@ -11,7 +11,7 @@ namespace Nucleotidz.Kafka.Consumer
     {
         private readonly ConsumerConfiguration _consumerConfiguration;
         private readonly ISerializerFactory _serializerFactory;
-        private readonly IConsumerErrorHandler<TKey,TValue> _errorHandler;
+        private readonly IConsumerErrorHandler<TKey, TValue> _errorHandler;
         private readonly IPartitionsAssignedHandler<TKey, TValue> _partitionsAssignedHandler;
         private readonly HashSet<Type> _defaultDeserializers = new()
     {
@@ -30,13 +30,13 @@ namespace Nucleotidz.Kafka.Consumer
             _errorHandler = errorHandler;
             _consumerConfiguration = _consumerConfigurationOption.Value;
             _serializerFactory = serializerFactory;
-            _partitionsAssignedHandler= partitionsAssignedHandler;
+            _partitionsAssignedHandler = partitionsAssignedHandler;
         }
 
         public IConsumer<TKey, TValue> Create()
         {
             var consumerBuilder = new ConsumerBuilder<TKey, TValue>(CreateConfiguration());
-            if(_errorHandler is not null) 
+            if (_errorHandler is not null)
             {
                 consumerBuilder.SetErrorHandler((consumer, error) => _errorHandler.Handle(consumer, error));
             }
@@ -44,7 +44,7 @@ namespace Nucleotidz.Kafka.Consumer
             {
                 consumerBuilder.SetPartitionsAssignedHandler((consumer, topicPartitions) => _partitionsAssignedHandler.Handle(consumer, topicPartitions));
             }
-      
+
             ArgumentNullException.ThrowIfNull(_serializerFactory, nameof(_serializerFactory));
             if (!_defaultDeserializers.Contains(typeof(TKey)))
                 consumerBuilder.SetKeyDeserializer(_serializerFactory.CreateDeserializer<TKey>());
@@ -57,7 +57,8 @@ namespace Nucleotidz.Kafka.Consumer
             return new ConsumerConfig
             {
                 BootstrapServers = string.Join(",", _consumerConfiguration.BootstrapServers),
-                EnableAutoCommit = false,
+                EnableAutoCommit = true,
+                EnableAutoOffsetStore = false,
                 GroupId = _consumerConfiguration.GroupName,
                 ClientId = _consumerConfiguration.ClientId,
                 SecurityProtocol = SecurityProtocol.SaslSsl,
@@ -65,7 +66,7 @@ namespace Nucleotidz.Kafka.Consumer
                 SaslUsername = _consumerConfiguration.Username,
                 SaslPassword = _consumerConfiguration.Password,
                 AutoOffsetReset = _consumerConfiguration.AutoOffsetReset,
-                Debug=_consumerConfiguration.Debug,
+                Debug = _consumerConfiguration.Debug,
 
             };
         }
