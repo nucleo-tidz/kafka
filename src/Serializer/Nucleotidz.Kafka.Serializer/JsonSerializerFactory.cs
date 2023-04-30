@@ -22,7 +22,7 @@ namespace Nucleotidz.Kafka.Serializer
         public IDeserializer<T> CreateDeserializer<T>() where T : class
         {
 
-            return new NuceloJsonDeserializer<T>().AsSyncOverAsync();
+            return new JsonDeserializer<T>().AsSyncOverAsync();
         }
     }
 }
