@@ -3,7 +3,6 @@
     public enum  SerializationScheme
     {
         avro,
-        json,
-        protobuf
+        json
     }
 }

@@ -68,7 +68,6 @@ namespace Nucleotidz.Kafka.Consumer
                 SaslPassword = _consumerConfiguration.Password,
                 AutoOffsetReset = _consumerConfiguration.AutoOffsetReset,
                 Debug = _consumerConfiguration.Debug,
-
             };
         }
     }
